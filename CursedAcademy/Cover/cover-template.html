@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Binding - Cover Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Cover dimensions for 6" x 9" trim with 0.875" spine */
+        /* Assuming ~280 pages, spine width ≈ 0.875" */
+        /* Total width: 6 + 6 + 0.875 = 12.875" */
+        /* At 300dpi: 3863 x 2700 pixels */
+        
+        body {
+            background: #1a1a2e;
+        }
+        
+        .cover-template {
+            width: 3863px;
+            height: 2700px;
+            position: relative;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Cinzel', 'Trajan Pro', serif;
+            overflow: hidden;
+        }
+        
+        /* Mystical background pattern */
+        .cover-template::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(75, 0, 130, 0.15) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 25L55 30L35 35L30 55L25 35L5 30L25 25Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.8;
+        }
+        
+        /* Phoenix emblem */
+        .phoenix-emblem {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            opacity: 0.3;
+        }
+        
+        .phoenix-emblem svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Title */
+        .title {
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 340px;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: 
+                0 0 60px rgba(212, 175, 55, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 20px;
+            text-align: center;
+            width: 90%;
+        }
+        
+        /* Subtitle */
+        .subtitle {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 100px;
+            color: #c9b896;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+        
+        /* Series info */
+        .series {
+            position: absolute;
+            top: 62%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 70px;
+            color: #8b7355;
+            letter-spacing: 10px;
+        }
+        
+        /* Tagline */
+        .tagline {
+            position: absolute;
+            top: 72%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 65px;
+            color: #a0937d;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            width: 80%;
+        }
+        
+        /* Author name */
+        .author {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 90px;
+            color: #d4af37;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+        }
+        
+        /* Genre tags */
+        .genre {
+            position: absolute;
+            bottom: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 45px;
+            color: #6b5b4f;
+            letter-spacing: 8px;
+        }
+        
+        /* Spine (left side) */
+        .spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 262px; /* 0.875" at 300dpi */
+            background: linear-gradient(90deg, #0a0a15 0%, #1a1a2e 50%, #0f0f23 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .spine-title {
+            font-size: 90px;
+            color: #d4af37;
+            letter-spacing: 8px;
+            transform: rotate(180deg);
+        }
+        
+        .spine-author {
+            font-size: 50px;
+            color: #8b7355;
+            margin-top: 30px;
+            letter-spacing: 5px;
+            transform: rotate(180deg);
+        }
+        
+        /* Back cover text area (right side) */
+        .back-area {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cover-template">
+        <!-- Phoenix Emblem SVG -->
+        <div class="phoenix-emblem">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d4af37"/>
+                        <stop offset="100%" style="stop-color:#8b7355"/>
+                    </linearGradient>
+                </defs>
+                <path d="M100 20 C120 40, 140 60, 160 40 C180 20, 190 40, 180 60 C170 80, 150 100, 140 120 C130 140, 120 180, 100 190 C80 180, 70 140, 60 120 C50 100, 30 80, 20 60 C10 40, 20 20, 40 40 C60 60, 80 40, 100 20" 
+                      fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.6"/>
+                <path d="M100 40 L100 160 M70 80 L100 60 L130 80 M60 120 L100 100 L140 120" 
+                      fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="100" cy="100" r="15" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+            </svg>
+        </div>
+        
+        <div class="title">THE BINDING</div>
+        <div class="subtitle">A Dark Fantasy Romance</div>
+        <div class="series">The Cursed Academy, Book 1</div>
+        <div class="tagline">"Some bonds are meant to break.<br>And others are meant to last."</div>
+        <div class="author">Karma Bailey</div>
+        <div class="genre">ENEMIES TO LOVERS • FATED MATES</div>
+        
+        <div class="spine">
+            <div class="spine-title">THE BINDING</div>
+            <div class="spine-author">Karma Bailey</div>
+        </div>
+    </div>
+</body>
+</html>
